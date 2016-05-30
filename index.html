@@ -55,27 +55,34 @@
 						<blockquote ng-repeat="review in product.reviews">
 							<b>Stars: {{review.stars}}</b>		
 							{{review.body}}
-							<cite>by: {{review.author}}</cite>
+							<cite class="clearfix">—{{review.author}}</cite>
 						</blockquote>
+						
 						<form name="reviewForm">
-							<blockquote>
-								<b>Stars: {{review.stars}}</b>		
-								{{review.body}}
-								<cite class="clearfix">by: {{review.author}}</cite>
-							</blockquote>
-							<h3>Submit a Review</h3>
-							<select ng-model="review.stars">
-								<option value="1">1 star</option>
-								<option value="1">2 stars</option>
-								<option value="1">3 stars</option>
-								<option value="1">4 stars</option>
-								<option value="1">5 stars</option>		
-							</select>
-							<textarea ng_model="review.body"></textarea>
-							<label>by:</label>
-							<input ng-model="review.author" type="email" />
-							<input type ="submit" value="Submit" />		
-						</form>
+			              <!--  Live Preview -->
+			              <blockquote>
+			                <strong>{{review.stars}} Stars</strong>
+			                {{review.body}}
+			                <cite class="clearfix">—{{review.author}}</cite>
+			              </blockquote>
+
+			              <!--  Review Form -->
+			              <h4>Submit a Review</h4>
+			              <fieldset class="form-group">
+			                <select class="form-control" ng-options="stars for stars in [5,4,3,2,1]" ng-model="review.stars" title="Stars">
+			                  <option value="">Rate the Product</option>
+			                </select>
+			              </fieldset>
+			              <fieldset class="form-group">
+			                <textarea ng-model="review.body" class="form-control" placeholder="Write a short review of the product..." title="Review"></textarea>
+			              </fieldset>
+			              <fieldset class="form-group">
+			                <input ng-model="review.author" type="email" class="form-control" placeholder="jimmyDean@example.org" title="Email" />
+			              </fieldset>
+			              <fieldset class="form-group">
+			                <input type="submit" class="btn btn-primary pull-right" value="Submit Review" />
+			              </fieldset>
+			            </form>
 					</div>
 				</section>		
 			</div>
